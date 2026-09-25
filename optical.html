@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISIO | Optical & Prescription Atelier</title>
+  <meta name="description" content="Discover VISIO optical frames with anti-reflective, blue light blocking, and prescription precision optics in ultra-light titanium." />
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f5e6b8;
+      --gold-dark: #997819;
+      --bg-dark: #08080a;
+      --card-bg: rgba(18, 18, 22, 0.75);
+      --card-border: rgba(212, 175, 55, 0.18);
+      --text-primary: #f8f8f8;
+      --text-secondary: #a0a6b5;
+      --text-muted: #626877;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 20% 40%, rgba(140, 180, 230, 0.08) 0%, rgba(8, 8, 10, 0.98) 70%);
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header.site-header {
+      width: 100%;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4.5vw;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8, 8, 10, 0.85);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .brand-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    nav.nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav.nav-links a:hover,
+    nav.nav-links a.active {
+      color: var(--text-primary);
+    }
+
+    nav.nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    nav.nav-links a:hover::after,
+    nav.nav-links a.active::after {
+      width: 100%;
+    }
+
+    .btn-consult {
+      padding: 11px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-consult:hover {
+      background: var(--gold);
+      color: #08080a;
+    }
+
+    /* SECTION HERO */
+    .optical-hero {
+      padding: 70px 4.5vw 40px;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .optical-hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4.5vw, 56px);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .optical-hero p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* CUSTOMIZER SECTION */
+    .customizer-box {
+      margin: 20px 4.5vw 60px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      backdrop-filter: blur(16px);
+    }
+
+    .customizer-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .customizer-preview img {
+      max-width: 90%;
+      height: auto;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7));
+      transition: all 0.4s ease;
+    }
+
+    .lens-glow-indicator {
+      position: absolute;
+      width: 280px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(140, 180, 255, 0.2) 0%, transparent 70%);
+      filter: blur(25px);
+      pointer-events: none;
+    }
+
+    .lens-options h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .lens-options p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .lens-selector-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .lens-card {
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lens-card:hover,
+    .lens-card.active {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .lens-card strong {
+      display: block;
+      color: #fff;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .lens-card span {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .customizer-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+    }
+
+    .total-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .btn-order-lens {
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #d4af37 0%, #b89025 100%);
+      color: #08080a;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .btn-order-lens:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Optical Frames Showcase */
+    .optical-showcase {
+      padding: 0 4.5vw 80px;
+    }
+
+    .optical-showcase h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      color: #fff;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .optical-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .opt-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .opt-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    .opt-card img {
+      max-width: 90%;
+      height: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+      margin-bottom: 20px;
+    }
+
+    .opt-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .opt-card p {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .opt-card .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+
+    /* FOOTER */
+    footer.site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 4.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      nav.nav-links { display: none; }
+      .customizer-box { grid-template-columns: 1fr; }
+      footer.site-footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg"></div>
+
+  <div class="page-wrap">
+
+    <header class="site-header">
+      <a href="index.html" class="brand-group">
+        <div class="brand-mark">V</div>
+        <div class="brand-text">
+          <h1>VISIO</h1>
+          <span>Haute Lunetterie</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Exclusive 2026</a>
+        <a href="sunglasses.html">Sunglasses</a>
+        <a href="optical.html" class="active">Optical</a>
+        <a href="craft.html">Titanium Craft</a>
+        <a href="atelier.html">Atelier</a>
+      </nav>
+
+      <button class="btn-consult" onclick="alert('Optometrist consultation booking open!')">Book Eye Exam</button>
+    </header>
+
+    <!-- INTRO -->
+    <section class="optical-hero">
+      <div class="hero-badge">Clinical Precision Optics</div>
+      <h2>Prescription & Blue-Light Atelier</h2>
+      <p>Precision-ground German optics combined with aerospace grade titanium frames. Engineered to eliminate digital fatigue and deliver surgical optical clarity.</p>
+    </section>
+
+    <!-- INTERACTIVE LENS CUSTOMIZER -->
+    <div class="customizer-box">
+      <div class="customizer-preview">
+        <div class="lens-glow-indicator" id="lensGlow"></div>
+        <img id="customizerImg" src="assets/gentle-monster-square.png" alt="Optical Frame Preview" />
+        <span style="font-size: 11px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-top: 16px;">Live Optical Rendering Active</span>
+      </div>
+
+      <div class="lens-options">
+        <h4>Customize Your Optical Package</h4>
+        <p>Select your clinical lens treatment engineered to your digital habits and visual prescription requirements.</p>
+
+        <div class="lens-selector-grid">
+          <div class="lens-card active" onclick="selectLens(0, 'Blue Light Shield Plus', 249.99, this)">
+            <strong>Blue Shield Plus</strong>
+            <span>Blocks 99% harmful HEV screen light</span>
+          </div>
+          <div class="lens-card" onclick="selectLens(1, 'Diamond Clear Optical', 219.99, this)">
+            <strong>Diamond Anti-Glare</strong>
+            <span>Superhydrophobic multi-coat AR</span>
+          </div>
+          <div class="lens-card" onclick="selectLens(2, 'Adaptive Photochromic', 299.99, this)">
+            <strong>Adaptive Transitions</strong>
+            <span>Indoor clear, sun-tinted outdoors</span>
+          </div>
+          <div class="lens-card" onclick="selectLens(3, 'High-Index Ultra Thin', 339.99, this)">
+            <strong>1.74 Ultra Thin</strong>
+            <span>40% thinner for high prescriptions</span>
+          </div>
+        </div>
+
+        <div class="customizer-summary">
+          <div>
+            <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Selected Frame + Lens</div>
+            <div class="total-price" id="totalPrice">$249.99</div>
+          </div>
+          <button class="btn-order-lens" onclick="alert('Prescription optical order submitted!')">Configure Rx</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRAMES SHOWCASE -->
+    <section class="optical-showcase">
+      <h3>Signature Prescription Frames</h3>
+      <div class="optical-grid">
+
+        <div class="opt-card">
+          <img src="assets/gentle-monster-square.png" alt="Gentle Monster Square" />
+          <h4>Gentle Monster Square Specs</h4>
+          <p>Handcrafted Italian black acetate with custom core wire and ergonomic bridge.</p>
+          <div class="price">$249.99</div>
+          <button class="btn-consult" onclick="setCustomizer('assets/gentle-monster-square.png', 249.99)">Select Frame</button>
+        </div>
+
+        <div class="opt-card">
+          <img src="assets/classic-browline-vintage.png" alt="Classic Browline Vintage" />
+          <h4>Classic Browline Vintage</h4>
+          <p>Half-rim lightweight retro architecture with clear optical grade demo lenses.</p>
+          <div class="price">$165.00</div>
+          <button class="btn-consult" onclick="setCustomizer('assets/classic-browline-vintage.png', 165.00)">Select Frame</button>
+        </div>
+
+        <div class="opt-card">
+          <img src="assets/geometric-octagon-silver.png" alt="Geometric Octagon Silver" />
+          <h4>Geometric Octagon Wire</h4>
+          <p>Flexible titanium alloy wire with hypoallergenic medical-grade ceramic nose pads.</p>
+          <div class="price">$185.00</div>
+          <button class="btn-consult" onclick="setCustomizer('assets/geometric-octagon-silver.png', 185.00)">Select Frame</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div>&copy; 2026 VISIO Optical Atelier. ISO 9001 Certified Optical Lab.</div>
+      <div>Precision Vision Specialists</div>
+    </footer>
+
+  </div>
+
+  <script>
+    let baseFramePrice = 249.99;
+    let lensAddon = 0.00;
+
+    function selectLens(idx, name, price, el) {
+      document.querySelectorAll('.lens-card').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      const glow = document.getElementById('lensGlow');
+      if (idx === 0) glow.style.background = 'radial-gradient(circle, rgba(140, 180, 255, 0.35) 0%, transparent 70%)';
+      else if (idx === 1) glow.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%)';
+      else if (idx === 2) glow.style.background = 'radial-gradient(circle, rgba(200, 160, 255, 0.3) 0%, transparent 70%)';
+      else glow.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%)';
+      
+      document.getElementById('totalPrice').textContent = '$' + price.toFixed(2);
+    }
+
+    function setCustomizer(imgSrc, price) {
+      document.getElementById('customizerImg').src = imgSrc;
+      document.getElementById('totalPrice').textContent = '$' + price.toFixed(2);
+      window.scrollTo({ top: 380, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

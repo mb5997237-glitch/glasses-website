@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISIO | Sunglasses Collection — Haute Lunetterie</title>
+  <meta name="description" content="Explore VISIO designer sunglasses collection. 100% UV400 polarized optics, 24K gold plated temples, and aerospace titanium craftsmanship." />
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f5e6b8;
+      --gold-dark: #997819;
+      --bg-dark: #08080a;
+      --card-bg: rgba(18, 18, 22, 0.75);
+      --card-border: rgba(212, 175, 55, 0.18);
+      --text-primary: #f8f8f8;
+      --text-secondary: #a0a6b5;
+      --text-muted: #626877;
+      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient background */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.07) 0%, rgba(8, 8, 10, 0.98) 65%);
+    }
+
+    .ambient-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ================= HEADER ================= */
+    header.site-header {
+      width: 100%;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4.5vw;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8, 8, 10, 0.85);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.22);
+    }
+
+    .brand-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    nav.nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav.nav-links a:hover,
+    nav.nav-links a.active {
+      color: var(--text-primary);
+    }
+
+    nav.nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    nav.nav-links a:hover::after,
+    nav.nav-links a.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(212, 175, 55, 0.12);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .icon-btn .badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--gold);
+      color: #08080a;
+      font-size: 10px;
+      font-weight: 800;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-consult {
+      padding: 11px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-consult:hover {
+      background: var(--gold);
+      color: #08080a;
+      box-shadow: 0 0 24px rgba(212, 175, 55, 0.4);
+    }
+
+    /* ================= HERO BANNER ================= */
+    .catalog-hero {
+      padding: 60px 4.5vw 30px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .catalog-hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4.5vw, 56px);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .catalog-hero p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Filters Bar */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 4.5vw;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 9px 20px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #08080a;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+    }
+
+    .sort-box select {
+      background: rgba(20, 20, 26, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 32px;
+      padding: 0 4.5vw 80px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      backdrop-filter: blur(16px);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.15);
+    }
+
+    .card-top {
+      position: relative;
+      height: 280px;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.4) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .card-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      z-index: 2;
+    }
+
+    .card-like-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .card-like-btn:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .card-img {
+      max-width: 90%;
+      max-height: 200px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .card-img {
+      transform: scale(1.08) rotate(-1deg);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .card-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .card-spec-badge {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #c9cdd4;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 18px;
+    }
+
+    .card-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-buy-card {
+      padding: 10px 20px;
+      border-radius: 20px;
+      background: var(--gold);
+      color: #08080a;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-buy-card:hover {
+      background: #e5c149;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-try-card {
+      padding: 10px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-try-card:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #101015;
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      padding: 40px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.2);
+      text-align: center;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: #888;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .modal-close:hover { color: #fff; }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 4.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 900px) {
+      nav.nav-links { display: none; }
+      .product-grid { grid-template-columns: 1fr; }
+      footer.site-footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg"></div>
+  <div class="ambient-grid"></div>
+
+  <div class="page-wrap">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <a href="index.html" class="brand-group">
+        <div class="brand-mark">V</div>
+        <div class="brand-text">
+          <h1>VISIO</h1>
+          <span>Haute Lunetterie</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Exclusive 2026</a>
+        <a href="sunglasses.html" class="active">Sunglasses</a>
+        <a href="optical.html">Optical</a>
+        <a href="craft.html">Titanium Craft</a>
+        <a href="atelier.html">Atelier</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" title="Wishlist" onclick="alert('Wishlist opened')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge">2</span>
+        </button>
+        <button class="btn-consult" onclick="openARModal()">Virtual Try-On</button>
+      </div>
+    </header>
+
+    <!-- HERO INTRO -->
+    <section class="catalog-hero">
+      <div class="hero-badge">Haute Lunetterie 2026</div>
+      <h2>The Sunglasses Collection</h2>
+      <p>Shield your vision with 100% UV400 polarized precision optics, sculpted titanium architectures, and 24K yellow gold detailing.</p>
+    </section>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="tab-btn active" onclick="filterCatalog('all', this)">All Frames (05)</button>
+        <button class="tab-btn" onclick="filterCatalog('polarized', this)">Polarized UV400</button>
+        <button class="tab-btn" onclick="filterCatalog('gold', this)">24K Gold Edition</button>
+        <button class="tab-btn" onclick="filterCatalog('acetate', this)">Italian Acetate</button>
+      </div>
+      <div class="sort-box">
+        <select onchange="sortCards(this.value)">
+          <option value="featured">Featured Collection</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="product-grid" id="productGrid">
+
+      <!-- Product 1 -->
+      <div class="product-card" data-category="polarized" data-price="210.00" data-rating="5.0">
+        <div class="card-top">
+          <span class="card-tag">Polarized Icon</span>
+          <button class="card-like-btn" title="Add to Wishlist" onclick="this.style.color='#d4af37'">❤</button>
+          <img class="card-img" src="assets/polarized-hexagon-aviator.png" alt="Polarized Hexagon Aviator" />
+        </div>
+        <div class="card-body">
+          <div>
+            <h3 class="card-title">Polarized Hexagon Aviator</h3>
+            <p class="card-desc">Bold double-bridge metallic frame with UV400 polarized lenses and scratch-resistant diamond cut geometry.</p>
+            <div class="card-specs">
+              <span class="card-spec-badge">100% Polarized</span>
+              <span class="card-spec-badge">Double Bridge</span>
+              <span class="card-spec-badge">UV400</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-price">$210.00</span>
+            <div class="card-actions">
+              <button class="btn-try-card" onclick="openARModal('Polarized Hexagon Aviator')">AR Try</button>
+              <button class="btn-buy-card" onclick="alert('Added Polarized Hexagon Aviator to Bag!')">Acquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card" data-category="gold" data-price="320.00" data-rating="5.0">
+        <div class="card-top">
+          <span class="card-tag">24K Limited Edition</span>
+          <button class="card-like-btn" title="Add to Wishlist" onclick="this.style.color='#d4af37'">❤</button>
+          <img class="card-img" src="assets/rimless-emerald-gold.png" alt="Rimless Emerald Gold" />
+        </div>
+        <div class="card-body">
+          <div>
+            <h3 class="card-title">Rimless Emerald Gold Edition</h3>
+            <p class="card-desc">Octagonal emerald gradient tint lenses paired with handcrafted 24K yellow gold leopard luxury temple arms.</p>
+            <div class="card-specs">
+              <span class="card-spec-badge">24K Gold Plated</span>
+              <span class="card-spec-badge">Emerald Tint</span>
+              <span class="card-spec-badge">Panther Temples</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-price">$320.00</span>
+            <div class="card-actions">
+              <button class="btn-try-card" onclick="openARModal('Rimless Emerald Gold Edition')">AR Try</button>
+              <button class="btn-buy-card" onclick="alert('Added Rimless Emerald Gold to Bag!')">Acquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card" data-category="polarized" data-price="185.00" data-rating="4.9">
+        <div class="card-top">
+          <span class="card-tag">Minimalist Alloy</span>
+          <button class="card-like-btn" title="Add to Wishlist" onclick="this.style.color='#d4af37'">❤</button>
+          <img class="card-img" src="assets/geometric-octagon-silver.png" alt="Geometric Octagon Silver" />
+        </div>
+        <div class="card-body">
+          <div>
+            <h3 class="card-title">Geometric Octagon Silver</h3>
+            <p class="card-desc">Ultralight polygon wireframe built with flexible memory-alloy and dark UV400 polarized sun lenses.</p>
+            <div class="card-specs">
+              <span class="card-spec-badge">Memory Alloy</span>
+              <span class="card-spec-badge">12g Weight</span>
+              <span class="card-spec-badge">Ceramic Pads</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-price">$185.00</span>
+            <div class="card-actions">
+              <button class="btn-try-card" onclick="openARModal('Geometric Octagon Silver')">AR Try</button>
+              <button class="btn-buy-card" onclick="alert('Added Geometric Octagon Silver to Bag!')">Acquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card" data-category="acetate" data-price="249.99" data-rating="4.9">
+        <div class="card-top">
+          <span class="card-tag">Haute Couture</span>
+          <button class="card-like-btn" title="Add to Wishlist" onclick="this.style.color='#d4af37'">❤</button>
+          <img class="card-img" src="assets/gentle-monster-square.png" alt="Gentle Monster Square Specs" />
+        </div>
+        <div class="card-body">
+          <div>
+            <h3 class="card-title">Gentle Monster Square Specs</h3>
+            <p class="card-desc">Italian Mazzucchelli thick black acetate frame featuring hand-inlaid silver star accents on sculpted temples.</p>
+            <div class="card-specs">
+              <span class="card-spec-badge">Italian Acetate</span>
+              <span class="card-spec-badge">Silver Core</span>
+              <span class="card-spec-badge">5-Barrel Hinge</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-price">$249.99</span>
+            <div class="card-actions">
+              <button class="btn-try-card" onclick="openARModal('Gentle Monster Square Specs')">AR Try</button>
+              <button class="btn-buy-card" onclick="alert('Added Gentle Monster Specs to Bag!')">Acquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card" data-category="acetate" data-price="165.00" data-rating="4.8">
+        <div class="card-top">
+          <span class="card-tag">Heritage Retro</span>
+          <button class="card-like-btn" title="Add to Wishlist" onclick="this.style.color='#d4af37'">❤</button>
+          <img class="card-img" src="assets/classic-browline-vintage.png" alt="Classic Browline Vintage" />
+        </div>
+        <div class="card-body">
+          <div>
+            <h3 class="card-title">Classic Browline Vintage</h3>
+            <p class="card-desc">Timeless half-rim retro design with crystal-clear prescription-ready lenses and engraved gold filigree bridge.</p>
+            <div class="card-specs">
+              <span class="card-spec-badge">Monel Half-Rim</span>
+              <span class="card-spec-badge">Prescription Ready</span>
+              <span class="card-spec-badge">Vintage Classic</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-price">$165.00</span>
+            <div class="card-actions">
+              <button class="btn-try-card" onclick="openARModal('Classic Browline Vintage')">AR Try</button>
+              <button class="btn-buy-card" onclick="alert('Added Classic Browline to Bag!')">Acquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div>&copy; 2026 VISIO Haute Lunetterie. All Rights Reserved.</div>
+      <div>Paris &bull; Milan &bull; Tokyo &bull; New York</div>
+    </footer>
+
+  </div>
+
+  <!-- AR Modal -->
+  <div class="modal-overlay" id="arModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeARModal()">&times;</button>
+      <div style="font-size: 38px; margin-bottom: 12px; color: var(--gold);">👓</div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #fff; margin-bottom: 8px;">VISIO Virtual Try-On</h3>
+      <p style="color: #a0a6b5; font-size: 14px; margin-bottom: 24px;" id="modalFrameName">Position your face in good lighting to preview this handcrafted frame in real-time AR simulation.</p>
+      <div style="width: 100%; height: 260px; background: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(212, 175, 55, 0.4); margin-bottom: 24px; position: relative;">
+        <span style="color: var(--gold); font-size: 13px; letter-spacing: 1px; text-transform: uppercase;">[ Camera AR Feed Initialized &bull; Calibrating Pupillary Distance ]</span>
+      </div>
+      <button class="btn-buy-card" style="padding: 12px 32px; font-size: 12px;" onclick="closeARModal()">Complete Try-On</button>
+    </div>
+  </div>
+
+  <script>
+    function filterCatalog(category, el) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      el.classList.add('active');
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function sortCards(type) {
+      const grid = document.getElementById('productGrid');
+      const cards = Array.from(grid.children);
+      cards.sort((a, b) => {
+        if (type === 'price-low') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+        if (type === 'price-high') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+        if (type === 'rating') return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+        return 0;
+      });
+      cards.forEach(c => grid.appendChild(c));
+    }
+
+    function openARModal(frameName = 'Selected Frame') {
+      document.getElementById('modalFrameName').textContent = `Position your face in good lighting to preview the ${frameName} in real-time AR simulation.`;
+      document.getElementById('arModal').classList.add('open');
+    }
+
+    function closeARModal() {
+      document.getElementById('arModal').classList.remove('open');
+    }
+  </script>
+</body>
+</html>

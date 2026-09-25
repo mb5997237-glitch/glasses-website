@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISIO | Bespoke Atelier & Private Consultation</title>
+  <meta name="description" content="Book a private styling consultation or commission a custom bespoke frame with VISIO Haute Lunetterie artisans." />
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f5e6b8;
+      --gold-dark: #997819;
+      --bg-dark: #08080a;
+      --card-bg: rgba(18, 18, 22, 0.75);
+      --card-border: rgba(212, 175, 55, 0.18);
+      --text-primary: #f8f8f8;
+      --text-secondary: #a0a6b5;
+      --text-muted: #626877;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.08) 0%, rgba(8, 8, 10, 0.98) 70%);
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header.site-header {
+      width: 100%;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4.5vw;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8, 8, 10, 0.85);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .brand-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    nav.nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav.nav-links a:hover,
+    nav.nav-links a.active {
+      color: var(--text-primary);
+    }
+
+    nav.nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    nav.nav-links a:hover::after,
+    nav.nav-links a.active::after {
+      width: 100%;
+    }
+
+    .btn-consult {
+      padding: 11px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-consult:hover {
+      background: var(--gold);
+      color: #08080a;
+    }
+
+    /* HERO */
+    .atelier-hero {
+      padding: 70px 4.5vw 40px;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .atelier-hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4.5vw, 56px);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .atelier-hero p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* BESPOKE BUILDER & BOOKING */
+    .atelier-main-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 20px 4.5vw 80px;
+    }
+
+    .booking-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px;
+      backdrop-filter: blur(16px);
+    }
+
+    .booking-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .booking-card p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 13.5px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    .btn-submit-booking {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #d4af37 0%, #b89025 100%);
+      color: #08080a;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-submit-booking:hover {
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* GLOBAL SALONS */
+    .salons-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .salon-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .salon-card:hover {
+      border-color: var(--gold);
+      transform: translateX(6px);
+    }
+
+    .salon-info h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .salon-info p {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .salon-info span {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .salon-action button {
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: transparent;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .salon-action button:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #08080a;
+    }
+
+    /* FOOTER */
+    footer.site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 4.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      nav.nav-links { display: none; }
+      .atelier-main-wrap { grid-template-columns: 1fr; }
+      footer.site-footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg"></div>
+
+  <div class="page-wrap">
+
+    <header class="site-header">
+      <a href="index.html" class="brand-group">
+        <div class="brand-mark">V</div>
+        <div class="brand-text">
+          <h1>VISIO</h1>
+          <span>Haute Lunetterie</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Exclusive 2026</a>
+        <a href="sunglasses.html">Sunglasses</a>
+        <a href="optical.html">Optical</a>
+        <a href="craft.html">Titanium Craft</a>
+        <a href="atelier.html" class="active">Atelier</a>
+      </nav>
+
+      <button class="btn-consult" onclick="document.getElementById('nameInput').focus()">Private VIP Booking</button>
+    </header>
+
+    <section class="atelier-hero">
+      <div class="hero-badge">Haute Couture Bespoke</div>
+      <h2>The VISIO Private Atelier</h2>
+      <p>Commission custom bespoke eyewear tailored to your cranial measurements, temple bridge geometry, and choice of 24K gold or platinum finishes.</p>
+    </section>
+
+    <div class="atelier-main-wrap">
+      
+      <!-- FORM -->
+      <div class="booking-card">
+        <h3>Private Styling Consultation</h3>
+        <p>Book a one-on-one private consultation with a certified master optician and stylist.</p>
+
+        <form onsubmit="handleBooking(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="nameInput" placeholder="Lord / Lady / Monsieur / Madame" required />
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="client@luxurydomain.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>Consultation Format</label>
+            <select id="consultType">
+              <option>Virtual AR Styling (HD Video)</option>
+              <option>In-Person VIP Suite (Paris Atelier)</option>
+              <option>In-Person VIP Suite (Milan Via Montenapoleone)</option>
+              <option>In-Person VIP Suite (New York 5th Avenue)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Preferred Frame Interest</label>
+            <select>
+              <option>Rimless Emerald 24K Gold Edition</option>
+              <option>Gentle Monster Italian Acetate</option>
+              <option>Polarized Hexagon Titanium Aviator</option>
+              <option>Custom Commission / Bespoke Alloy</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Personal Vision Notes or Prescription</label>
+            <textarea rows="3" placeholder="Enter pupillary distance, facial fit requests, or engraving initials..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit-booking">Request VIP Private Appointment</button>
+        </form>
+      </div>
+
+      <!-- GLOBAL SALONS -->
+      <div class="salons-col">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #fff; margin-bottom: 6px;">Global Private Flagships</h3>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">Appointments exclusively reserved for private clientele.</p>
+
+        <div class="salon-card">
+          <div class="salon-info">
+            <h4>Paris Atelier &bull; Place Vendôme</h4>
+            <p>18 Rue de la Paix, 75002 Paris, France</p>
+            <span>Master Craftsman On-Site</span>
+          </div>
+          <div class="salon-action">
+            <button onclick="setSalon('Paris Place Vendôme')">Reserve</button>
+          </div>
+        </div>
+
+        <div class="salon-card">
+          <div class="salon-info">
+            <h4>Milan &bull; Via Montenapoleone</h4>
+            <p>Via Montenapoleone 14, 20121 Milano, Italy</p>
+            <span>Mazzucchelli Acetate Vault</span>
+          </div>
+          <div class="salon-action">
+            <button onclick="setSalon('Milan Via Montenapoleone')">Reserve</button>
+          </div>
+        </div>
+
+        <div class="salon-card">
+          <div class="salon-info">
+            <h4>New York &bull; Fifth Avenue</h4>
+            <p>712 5th Avenue, New York, NY 10019</p>
+            <span>Private Penthouse Suite</span>
+          </div>
+          <div class="salon-action">
+            <button onclick="setSalon('New York Fifth Avenue')">Reserve</button>
+          </div>
+        </div>
+
+        <div class="salon-card">
+          <div class="salon-info">
+            <h4>Tokyo &bull; Ginza District</h4>
+            <p>6-10-1 Ginza, Chuo City, Tokyo 104-0061</p>
+            <span>Sabae Titanium Forge Master</span>
+          </div>
+          <div class="salon-action">
+            <button onclick="setSalon('Tokyo Ginza District')">Reserve</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="site-footer">
+      <div>&copy; 2026 VISIO Haute Lunetterie &bull; Bespoke Division</div>
+      <div>By Appointment Only</div>
+    </footer>
+
+  </div>
+
+  <script>
+    function handleBooking(e) {
+      e.preventDefault();
+      alert('Thank you. A VISIO Private Concierge will contact you within 2 hours to confirm your VIP consultation.');
+    }
+
+    function setSalon(salon) {
+      document.getElementById('consultType').value = 'In-Person VIP Suite (' + salon + ')';
+      document.getElementById('nameInput').focus();
+    }
+  </script>
+</body>
+</html>
